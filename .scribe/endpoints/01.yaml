@@ -1,0 +1,253 @@
+name: 'Admin endpoints'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/travels
+    metadata:
+      groupName: 'Admin endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST Travel'
+      description: 'Creates a new Travel record.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_public:
+        name: is_public
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: beatae
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: accusantium
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 7
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      is_public: false
+      name: beatae
+      description: accusantium
+      number_of_days: 7
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"996a36ca-2693-4901-9c55-7136e68d81d5","name":"My new travel 234","slug":"my-new-travel-234","description":"The second best journey ever!","number_of_days":"4","number_of_nights":3}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message":"The name has already been taken.","errors":{"name":["The name has already been taken."]}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer hVegc65ZEabPv18aD3d4k6f'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/admin/travels/{travel_id}/tours'
+    metadata:
+      groupName: 'Admin endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST Tour'
+      description: 'Creates a new Tour record.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: ut
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: ut
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: voluptatum
+        type: string
+        custom: []
+      starting_date:
+        name: starting_date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2023-07-12T16:22:50'
+        type: string
+        custom: []
+      ending_date:
+        name: ending_date
+        description: 'Must be a valid date. Must be a date after <code>starting_date</code>.'
+        required: true
+        example: '2081-04-24'
+        type: string
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 5171659.05618
+        type: number
+        custom: []
+    cleanBodyParameters:
+      name: voluptatum
+      starting_date: '2023-07-12T16:22:50'
+      ending_date: '2081-04-24'
+      price: 5171659.05618
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"996a381e-64ca-46ba-8b51-f8279d5529ad","name":"Tour 1","starting_date":"2023-06-15","ending_date":"2023-06-20","price":"99.99"}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message":"The name has already been taken.","errors":{"name":["The name has already been taken."]}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer baVh6Z4eD8Pkdc36gEv15fa'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/travels/{travel_id}'
+    metadata:
+      groupName: 'Admin endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'PUT Travel'
+      description: 'Updates new Travel record.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: itaque
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: itaque
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_public:
+        name: is_public
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: aut
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: voluptatem
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 6
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      is_public: true
+      name: aut
+      description: voluptatem
+      number_of_days: 6
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"996a36ca-2693-4901-9c55-7136e68d81d5","name":"My new travel 234","slug":"my-new-travel-234","description":"The second best journey ever!","number_of_days":"4","number_of_nights":3}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message":"The name has already been taken.","errors":{"name":["The name has already been taken."]}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer DaabckEhPgvd1V48f663Ze5'
+    controller: null
+    method: null
+    route: null
+    custom: []
